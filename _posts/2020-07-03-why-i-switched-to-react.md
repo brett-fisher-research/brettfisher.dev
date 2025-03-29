@@ -1,8 +1,8 @@
 ---
 title: Why I Converted from Vue to React
-date: '2020-07-03T23:46:37.121Z'
+date: "2020-07-03T23:46:37.121Z"
 layout: post
-tags: archive
+draft: true
 ---
 
 **EDIT: After receiving a lot of comments on this post, I realized that not all of the information I presented is accurate. I just released an updated version of this article that you can read [here](/posts/why-i-switched-to-react-new/). I will keep this article for historical reasons, but note that I don't hold all of the same views that I have presented here.**
@@ -57,15 +57,15 @@ to follow that user. Maybe we could use this in a social media app. Here's the V
       users: [
         {
           id: 1,
-          name: 'Rick',
+          name: "Rick",
         },
         {
           id: 2,
-          name: 'Morty',
+          name: "Morty",
         },
         {
           id: 3,
-          name: 'Summer',
+          name: "Summer",
         },
       ],
     }),
@@ -82,27 +82,27 @@ Here's the same idea with React:
 ```jsx
 // UserComponent.jsx
 
-import React from 'react';
+import React from "react";
 
 const users = [
   {
     id: 1,
-    name: 'Rick',
+    name: "Rick",
   },
   {
     id: 2,
-    name: 'Morty',
+    name: "Morty",
   },
   {
     id: 3,
-    name: 'Summer',
+    name: "Summer",
   },
 ];
 
 export default function ({ onFollowUser }) {
   return (
     <ul>
-      {users.map(user => (
+      {users.map((user) => (
         <li key={user.id}>
           {user.name}
           <button onClick={() => onFollowUser(user.id)}>Follow</button>
@@ -203,13 +203,13 @@ export default defineComponent({
 Here's the same app in React:
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const CounterApp = () => {
   const [counter, setCounter] = useState(0);
 
   const increaseCounter = (): void => {
-    setCounter(prevCounter => prevCounter + 1);
+    setCounter((prevCounter) => prevCounter + 1);
   };
 
   return (

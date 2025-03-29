@@ -1,8 +1,8 @@
 ---
 title: Dynamically Loading Vue Components by Route
-date: '2020-03-22T23:46:37.121Z'
+date: "2020-03-22T23:46:37.121Z"
 layout: post
-tags: archive
+draft: true
 ---
 
 When I decided to create this blog with Vue, I found
@@ -41,28 +41,28 @@ I'll explain what I mean by this. Here's a simple JSON file containing informati
 I wanted to be able to take the tags from each blog post and render it in a wrapper component around the actual post data. So instead of mapping each individual loaded Markdown file to its own route, I wanted a single route that could take the post's slug and use that to dynamically load the post and its information using the meta JSON file. I started out with a Vue router file looking something like this:
 
 ```javascript
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Home from '@/views/Home.vue';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "@/views/Home.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     component: Home,
   },
   {
-    path: '/posts/:slug',
-    name: 'BlogPost',
-    component: () => import('@/views/BlogPost.vue'),
+    path: "/posts/:slug",
+    name: "BlogPost",
+    component: () => import("@/views/BlogPost.vue"),
     props: true,
   },
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes,
 });
@@ -86,7 +86,7 @@ This is the <code>BlogPost</code> component I started out with:
 </template>
 
 <script>
-  import postsMeta from '@/posts/meta.json';
+  import postsMeta from "@/posts/meta.json";
 
   export default {
     props: {
@@ -96,7 +96,7 @@ This is the <code>BlogPost</code> component I started out with:
       },
     },
     data: () => ({
-      title: '',
+      title: "",
       tags: [],
       postComponent: null,
     }),
@@ -108,7 +108,7 @@ This is the <code>BlogPost</code> component I started out with:
           await import(`@/posts/${this.slug}/index.vue`)
         ).default;
       } catch (err) {
-        this.$router.push('/400');
+        this.$router.push("/400");
       }
     },
   };

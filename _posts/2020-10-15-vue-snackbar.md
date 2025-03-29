@@ -1,7 +1,9 @@
 ---
 title: The Easiest Way to Use Snackbars in Vue
-date: '2020-10-15T23:46:37.121Z'
+date: "2020-10-15T23:46:37.121Z"
 layout: post
+tags: archive
+draft: true
 ---
 
 **TLDR**; Check out the code on [Code Sandbox](https://codesandbox.io/s/snackbar-7e0jq) to learn how to make a snackbar that can be opened from any Vue component in your app!
@@ -19,10 +21,10 @@ Lucky for us, we can just use a new Vue object to function as an event bus. It p
 ```js
 // EventBus/index.js
 
-import Vue from 'vue';
+import Vue from "vue";
 
 export const ACTIONS = {
-  SNACKBAR: 'snackbar',
+  SNACKBAR: "snackbar",
 };
 
 const EventBus = new Vue();
@@ -39,9 +41,9 @@ I created a folder called `globalActions` with an `index.js` file to contain fun
 ```js
 // globalActions/index.js
 
-import EventBus, { ACTIONS } from '../EventBus/index';
+import EventBus, { ACTIONS } from "../EventBus/index";
 
-export const showSnackbar = message => {
+export const showSnackbar = (message) => {
   EventBus.$emit(ACTIONS.SNACKBAR, message);
 };
 ```
@@ -59,11 +61,11 @@ I created a custom component called `MyComponent` to use this snackbar function:
 </template>
 
 <script>
-  import { showSnackbar } from '../globalActions';
+  import { showSnackbar } from "../globalActions";
   export default {
     methods: {
       openSnackbar: () => {
-        showSnackbar('Hello from snackbar!');
+        showSnackbar("Hello from snackbar!");
       },
     },
   };
@@ -88,20 +90,20 @@ I'm using Vuetify in my project, so it's really easy to just pop in [Vuetify's s
 </template>
 
 <script>
-  import EventBus, { ACTIONS } from './EventBus/index';
-  import MyComponent from './components/MyComponent.vue';
+  import EventBus, { ACTIONS } from "./EventBus/index";
+  import MyComponent from "./components/MyComponent.vue";
 
   export default {
-    name: 'App',
+    name: "App",
     components: {
       MyComponent,
     },
     data: () => ({
       snackbar: false,
-      snackbarMessage: '',
+      snackbarMessage: "",
     }),
     mounted() {
-      EventBus.$on(ACTIONS.SNACKBAR, message => {
+      EventBus.$on(ACTIONS.SNACKBAR, (message) => {
         this.snackbarMessage = message;
         this.snackbar = true;
       });

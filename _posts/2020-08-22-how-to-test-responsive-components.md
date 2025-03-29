@@ -1,7 +1,8 @@
 ---
 title: How to Test Responsive React Components
-date: '2020-08-22T23:46:37.121Z'
+date: "2020-08-22T23:46:37.121Z"
 layout: post
+draft: true
 ---
 
 I was recently writing some responsive React components and needed to find a way to unit test them. I was using some custom components developed by my company that made it easy to render different layouts depending on the screen size. I wanted to test that certain components were visible on larger screen sizes and hidden on smaller screen sizes. I use Jest as my test runner, and I wasn't sure if there was a way to make Jest render different screen sizes. Luckily, it doesn't matter. There's a much easier way to test how your component behaves on different screen sizes.
@@ -11,13 +12,13 @@ As an example, let's create a simple responsive component. On small screen sizes
 Here's our first attempt: ([Code Sandbox](https://codesandbox.io/s/react-responsive-untestable-qkcbj?file=/src/App.js))
 
 ```js
-import React from 'react';
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import React from "react";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const App = () => {
   const theme = useTheme();
-  const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
 
   return <div>{isSmall ? "I'm small!" : "I'm big!"}</div>;
 };
@@ -30,9 +31,9 @@ What if I wanted to write a unit test that determined if the text "I'm small!" w
 I actually wrote about making your components more testable in [one of my previous posts](/better-testing). The principles I wrote about there can apply here as well. What if we just added another component that took `isSmall` as a prop? Then it would be easy to test. For example ([Code Sandbox](https://codesandbox.io/s/react-responsive-hknr3?file=/src/App.js)):
 
 ```js
-import React from 'react';
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import React from "react";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 export const ResponsiveApp = ({ isSmall }) => (
   <div>{isSmall ? "I'm small!" : "I'm big!"}</div>
@@ -40,7 +41,7 @@ export const ResponsiveApp = ({ isSmall }) => (
 
 const App = () => {
   const theme = useTheme();
-  const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
 
   return <ResponsiveApp isSmall={isSmall} />;
 };
@@ -51,12 +52,12 @@ export default App;
 Now we could just write a unit test for `ResponsiveApp`, which doesn't have any dependencies like `useMediaQuery`. For example:
 
 ```js
-import React from 'react';
-import { render } from '@testing-library/react';
-import { ResponsiveApp } from './App.jsx';
+import React from "react";
+import { render } from "@testing-library/react";
+import { ResponsiveApp } from "./App.jsx";
 
-describe('ResponsiveApp test', () => {
-  const createWrapper = isSmall => <ResponsiveApp isSmall={isSmall} />;
+describe("ResponsiveApp test", () => {
+  const createWrapper = (isSmall) => <ResponsiveApp isSmall={isSmall} />;
 
   it("displays I'm small! on small screens", () => {
     const { getByText } = createWrapper(true);

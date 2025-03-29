@@ -1,7 +1,8 @@
 ---
 title: 3 Things I Learned from my Internship at Amazon
-date: '2020-08-29T23:46:37.121Z'
+date: "2020-08-29T23:46:37.121Z"
 layout: post
+draft: true
 ---
 
 Yesterday was the last day of my three-month-long internship with Amazon. Compared to the other two companies where I've interned, Amazon was by far my favorite company to work for. I got to work on a great team and learned a lot. Today I'll be talking about the three most important things I learned from Amazon (note that any views represented here are my own and do not necessarily represent those of Amazon).

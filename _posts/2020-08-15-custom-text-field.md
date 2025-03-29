@@ -1,7 +1,8 @@
 ---
 title: How to Create Your Own React Text Field
-date: '2020-08-15T23:46:37.121Z'
+date: "2020-08-15T23:46:37.121Z"
 layout: post
+draft: true
 ---
 
 [On the home page of my blog](https://brettfisher.dev), there is a search field that lets you search for posts by title or tags. I originally tried using [Material UI's Text Field component](https://material-ui.com/components/text-fields/#text-field), which seemed to be working just fine. However, once I built my site and ran it in production mode, the styling on the Text Field disappeared. I don't know if this is a problem with Material UI or Gatsby (or even something else), but I wasn't about to publish that to my site. All I wanted was a simple input element with some nice styling. I thought, "Hey, I'm a web developer. I'll just make the component myself"! I'll show you how I did it.
@@ -15,7 +16,7 @@ My goal was to just create a simple search field, or a generic text field that I
 [Code Sandbox](https://codesandbox.io/s/react-text-field-0dvft?file=/src/TextFieldBasicWrapper.tsx)
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 const TextField = () => {
   return <input />;
@@ -29,7 +30,7 @@ Test it out in your App.tsx and it should just render a normal `input` field. Ok
 [Code Sandbox](https://codesandbox.io/s/react-text-field-0dvft?file=/src/TextFieldWithState.tsx)
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 interface TextFieldProps {
   value: string;
@@ -71,7 +72,7 @@ Our Text Field is looking great. But it would be nice to be able to modify other
 [Code Sandbox](https://codesandbox.io/s/react-text-field-0dvft?file=/src/TextFieldWithMoreProps.tsx)
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 interface TextFieldProps {
   value: string;
@@ -79,7 +80,7 @@ interface TextFieldProps {
   placeholder?: string;
   autoFocus?: boolean;
   name?: string;
-  type?: 'email' | 'password' | 'text';
+  type?: "email" | "password" | "text";
 }
 
 const TextField = ({ onChange, ...rest }: TextFieldProps) => {
@@ -104,7 +105,7 @@ I'll add in one more prop called `textarea`. If it's true, it will make our Text
 [Code Sandbox](https://codesandbox.io/s/react-text-field-0dvft?file=/src/TextFieldWithTextarea.tsx)
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 type InputElement = HTMLInputElement | HTMLTextAreaElement;
 type InputChangeEvent = React.ChangeEvent<InputElement>;
@@ -115,16 +116,16 @@ interface TextFieldProps {
   placeholder?: string;
   autoFocus?: boolean;
   name?: string;
-  type?: 'email' | 'password' | 'text';
+  type?: "email" | "password" | "text";
   textarea?: boolean;
 }
 
 const TextField = ({ onChange, textarea = false, ...rest }: TextFieldProps) => {
-  const InputElement = textarea ? 'textarea' : 'input';
+  const InputElement = textarea ? "textarea" : "input";
   return (
     <InputElement
       className={`rounded-md w-full border border-gray-400 p-3 mb-5 ${
-        textarea ? 'h-32' : ''
+        textarea ? "h-32" : ""
       }`}
       onChange={({ target: { value } }: InputChangeEvent) => onChange(value)}
       {...rest}
@@ -155,7 +156,7 @@ So far, our custom Text Field is working out pretty well. The last feature I'd l
 [Code Sandbox](https://codesandbox.io/s/react-text-field-0dvft?file=/src/TextFieldWithRef.tsx)
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 type InputElement = HTMLInputElement | HTMLTextAreaElement;
 type InputChangeEvent = React.ChangeEvent<InputElement>;
@@ -166,18 +167,18 @@ interface TextFieldProps {
   placeholder?: string;
   autoFocus?: boolean;
   name?: string;
-  type?: 'email' | 'password' | 'text';
+  type?: "email" | "password" | "text";
   textarea?: boolean;
 }
 
 const TextField = React.forwardRef<InputElement, TextFieldProps>(
   ({ onChange, textarea = false, ...rest }, ref) => {
-    const InputElement = textarea ? 'textarea' : 'input';
+    const InputElement = textarea ? "textarea" : "input";
     return (
       <InputElement
         ref={ref as any}
         className={`rounded-md w-full border border-gray-400 p-3 mb-5 ${
-          textarea ? 'h-32' : ''
+          textarea ? "h-32" : ""
         }`}
         onChange={({ target: { value } }: InputChangeEvent) => onChange(value)}
         {...rest}

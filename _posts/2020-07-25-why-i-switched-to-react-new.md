@@ -1,8 +1,8 @@
 ---
 title: Why I Converted from Vue to React - UPDATED
-date: '2020-07-25T23:46:37.121Z'
+date: "2020-07-25T23:46:37.121Z"
 layout: post
-tags: archive
+draft: true
 ---
 
 [The original version of this article](/posts/why-i-switched-to-react/) got a lot more attention than I was expecting, especially since it was only my second post on dev.to. I'm grateful to everyone who read it and left feedback! As I read through the comments, I learned that some of the content of the original article wasn't entirely accurate and that I also wasn't clear about several of the points I was trying to make. My original article was an attempt to explain from a more technical standpoint why I chose React over Vue, but I realized I didn't quite have enough knowledge to tackle that in depth. In fact, I learned that I've gone the direction I have not because of "under the hood" differences between React and Vue, but instead out of small experiences that have shaped what feels the most comfortable for me in my career as a web developer. For other developers, Vue may feel more at home, and there's nothing wrong with that.
@@ -30,13 +30,13 @@ The next semester after I took that class, I decided to accept an internship wit
 As a \*very\* simple example, this is the kind of code I would run into a lot at Bluehost ([see it on Codepen](https://codepen.io/brettfishy/pen/QWyYoWN)):
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const UserDashboard = () => {
-  const [view, setView] = React.useState('followers');
+  const [view, setView] = React.useState("followers");
   const [user] = React.useState({
-    name: 'John Doe',
-    email: 'johndoe@example.com',
+    name: "John Doe",
+    email: "johndoe@example.com",
     followers: 1000,
     following: 500,
   });
@@ -62,11 +62,11 @@ const UserDashboard = () => {
   return (
     <div>
       <section>
-        <button onClick={() => setView('profile')}>Profile</button>
-        <button onClick={() => setView('followers')}>Followers</button>
+        <button onClick={() => setView("profile")}>Profile</button>
+        <button onClick={() => setView("followers")}>Followers</button>
       </section>
       <section>
-        {view === 'followers' ? renderFollowers() : renderProfile()}
+        {view === "followers" ? renderFollowers() : renderProfile()}
       </section>
     </div>
   );
@@ -106,12 +106,12 @@ As a comparison, here's the same component implemented with Vue ([see it on Code
   export default {
     data: () => ({
       user: {
-        name: 'John Doe',
-        email: 'johndoe@example.com',
+        name: "John Doe",
+        email: "johndoe@example.com",
         followers: 1000,
         following: 500,
       },
-      view: 'followers',
+      view: "followers",
     }),
   };
 </script>
@@ -154,7 +154,7 @@ Let's look at another example to illustrate this point. We'll create a simple co
 
 <script>
   export default {
-    name: 'UserProfile',
+    name: "UserProfile",
     props: {
       user: {
         type: Object,
@@ -178,17 +178,17 @@ Let's look at another example to illustrate this point. We'll create a simple co
 </template>
 
 <script>
-  import UserProfile from './UserProfile.vue';
+  import UserProfile from "./UserProfile.vue";
 
   export default {
-    name: 'App',
+    name: "App",
     components: {
       UserProfile,
     },
     data: () => ({
       user: {
-        name: 'John Doe',
-        username: 'johndoe',
+        name: "John Doe",
+        username: "johndoe",
         followers: 1794,
       },
     }),
@@ -226,11 +226,11 @@ export interface User {
 </template>
 
 <script lang="ts">
-  import { Component, Vue, Prop } from 'vue-property-decorator';
-  import { User } from './types';
+  import { Component, Vue, Prop } from "vue-property-decorator";
+  import { User } from "./types";
 
   @Component({
-    name: 'UserProfile',
+    name: "UserProfile",
   })
   class UserProfile extends Vue {
     @Prop({ required: true }) user: User;
@@ -250,20 +250,20 @@ export interface User {
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
-  import { User } from './types';
-  import * as UserProfile from './UserProfile.vue';
+  import { Component, Vue } from "vue-property-decorator";
+  import { User } from "./types";
+  import * as UserProfile from "./UserProfile.vue";
 
   @Component({
-    name: 'App',
+    name: "App",
     components: {
       UserProfile,
     },
   })
   class App extends Vue {
     private user: User = {
-      name: 'John Doe',
-      username: 'johndoe',
+      name: "John Doe",
+      username: "johndoe",
       followers: 1794,
     };
 
@@ -283,7 +283,7 @@ I didn't necessarily have to rewrite my business logic, but for larger component
 Let's look at the same component from above but written in React. Here is it written with normal JS ([Code Sandbox](https://codesandbox.io/s/nice-chebyshev-4tgp8?file=/src/App.js)):
 
 ```js
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const UserProfile = ({ user, onFollow }) => {
   return (
@@ -300,8 +300,8 @@ const UserProfile = ({ user, onFollow }) => {
 
 export default function App() {
   const [user] = useState({
-    name: 'John Doe',
-    username: 'johndoe',
+    name: "John Doe",
+    username: "johndoe",
     followers: 1794,
   });
 
@@ -320,7 +320,7 @@ export default function App() {
 Here's the same React app in TypeScript ([Code sandbox](https://codesandbox.io/s/late-platform-d3kwi?file=/src/App.tsx)):
 
 ```tsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface User {
   name: string;
@@ -348,8 +348,8 @@ const UserProfile = ({ user, onFollow }: UserProfileProps) => {
 
 export default function App() {
   const [user] = useState<User>({
-    name: 'John Doe',
-    username: 'johndoe',
+    name: "John Doe",
+    username: "johndoe",
     followers: 1794,
   });
 
@@ -382,24 +382,24 @@ For example, in a normal JS file, you usually have to `import` or `require` all 
 As an example, here's a tiny React app that uses some components from the [Material UI library](https://material-ui.com/) ([Code Sandbox link](https://codesandbox.io/s/exciting-merkle-xkn6f?file=/src/App.js)).
 
 ```js
-import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import React, { useState } from "react";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 export default function App() {
   const [items, setItems] = useState([]);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   const addItem = () => {
-    setItems(prevItems => [...prevItems, text]);
-    setText('');
+    setItems((prevItems) => [...prevItems, text]);
+    setText("");
   };
 
   return (
     <div className="App">
       <h1>My List of Things</h1>
       <ul>
-        {items.map(item => (
+        {items.map((item) => (
           <li>{item}</li>
         ))}
       </ul>
@@ -438,12 +438,12 @@ As a comparison, we'll look at the same component, only this time using [Vuetify
   export default {
     data: () => ({
       items: [],
-      text: '',
+      text: "",
     }),
     methods: {
       addItem() {
         this.items.push(this.text);
-        this.text = '';
+        this.text = "";
       },
     },
   };
@@ -453,8 +453,8 @@ As a comparison, we'll look at the same component, only this time using [Vuetify
 These lines in our `main.js` actually make Vuetify available:
 
 ```js
-import Vue from 'vue';
-import Vuetify from 'vuetify';
+import Vue from "vue";
+import Vuetify from "vuetify";
 Vue.use(Vuetify);
 ```
 

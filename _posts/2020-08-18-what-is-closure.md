@@ -1,7 +1,8 @@
 ---
 title: What is Closure in JavaScript?
-date: '2020-08-18T23:46:37.121Z'
+date: "2020-08-18T23:46:37.121Z"
 layout: post
+draft: true
 ---
 
 I recently purchased and read the book [You Don't Know JS Yet](https://www.amazon.com/You-Dont-Know-JS-Yet-ebook/dp/B084BNMN7T/ref=sr_1_2_sspa?dchild=1&keywords=you+don%27t+know+js+yet&qid=1597812272&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyVFlYMUJaOTQ2TzY3JmVuY3J5cHRlZElkPUEwMzA3MDI4Qlo2TDdCVlMwM0xBJmVuY3J5cHRlZEFkSWQ9QTA0ODk5NDgzVVFFSE1LSjlSQ0U5JndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==) by Kyle Simpson, which I found to be a great read. Even though I've worked as a JS developer for years, there were so many new things I learned by reading it (I am not endorsed by anyone affiliated with this book - I'm just recommending it because I genuinely liked it).
@@ -23,7 +24,7 @@ function doAsyncTask(successMsg) {
   });
 }
 
-getSuperImporantInfo('Hooray!');
+getSuperImporantInfo("Hooray!");
 
 // Some time later...
 // I remembered your variable! Hooray!

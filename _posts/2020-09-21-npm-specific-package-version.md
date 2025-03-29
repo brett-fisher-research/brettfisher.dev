@@ -1,7 +1,8 @@
 ---
 title: How to Install a Specific Version of an NPM Package
-date: '2020-09-21T23:46:37.121Z'
+date: "2020-09-21T23:46:37.121Z"
 layout: post
+draft: true
 ---
 
 The other day I got a warning in a Vue project I've been working on for a while. It was complaining about me using an unsupported version of TypeScript. I decided to download a supported version, but how was I supposed to do that?

@@ -1,7 +1,8 @@
 ---
 title: How to Create A Monorepo with Yarn Workspaces
-date: '2020-09-05T23:46:37.121Z'
+date: "2020-09-05T23:46:37.121Z"
 layout: post
+draft: true
 ---
 
 TLDR; If you'd prefer to just see the working code, view the whole project here: https://github.com/bandrewfisher/monorepo-tutorial
@@ -60,7 +61,7 @@ Now add this to your `index.js` file:
 
 ```js
 function packageAFunc() {
-  console.log('Using a function from package A');
+  console.log("Using a function from package A");
 }
 
 module.exports = packageAFunc;
@@ -79,7 +80,7 @@ $ touch index.js
 Add the following to your `index.js` file in `package-b`:
 
 ```js
-const packageAFunc = require('package-a');
+const packageAFunc = require("package-a");
 
 packageAFunc();
 ```

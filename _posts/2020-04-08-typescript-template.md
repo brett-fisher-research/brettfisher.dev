@@ -1,8 +1,8 @@
 ---
 title: Typescript + Express Template (just add npm)
-date: '2020-04-08T23:46:37.121Z'
+date: "2020-04-08T23:46:37.121Z"
 layout: post
-tags: archive
+draft: true
 ---
 
 TLDR; Just clone my Github repo and run <code>npm install</code> (or
@@ -157,7 +157,7 @@ $ touch src/index.ts
 Let's edit that <code>index.ts</code> file. Add the following to it:
 
 ```ts
-const message: string = 'Hello Typescript world!';
+const message: string = "Hello Typescript world!";
 console.log(message);
 ```
 
@@ -211,11 +211,11 @@ file to spin up a simple Express server. Replace your index.ts code with
 the following:
 
 ```ts
-import express from 'express';
+import express from "express";
 
 const app = express();
-app.get('/', (_req, res) => {
-  res.send('Hello world!');
+app.get("/", (_req, res) => {
+  res.send("Hello world!");
 });
 
 const PORT = process.env.PORT || 5000;
@@ -443,10 +443,10 @@ $ touch tests/example.spec.ts
 Put the following into your example.spec.ts file:
 
 ```js
-describe('example', () => {
-  it('works', () => {
-    const message: string = 'Hello';
-    expect(message).toBe('Hello');
+describe("example", () => {
+  it("works", () => {
+    const message: string = "Hello";
+    expect(message).toBe("Hello");
   });
 });
 ```
@@ -461,8 +461,8 @@ the following to it:
 
 ```js
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
+  preset: "ts-jest",
+  testEnvironment: "node",
 };
 ```
 
@@ -511,9 +511,9 @@ look like the following:
 
 ```js
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  reporters: ['default', 'jest-html-reporters'],
+  preset: "ts-jest",
+  testEnvironment: "node",
+  reporters: ["default", "jest-html-reporters"],
 };
 ```
 

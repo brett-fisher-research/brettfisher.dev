@@ -1,7 +1,8 @@
 ---
 title: 2 Ways to Write Easily Testable React Components
-date: '2020-08-10T23:46:37.121Z'
+date: "2020-08-10T23:46:37.121Z"
 layout: post
+draft: true
 ---
 
 Unit testing my React components is a skill that did not come very easily to me. When working on personal projects, it was so easy to justify not writing unit tests for reasons like the project wasn't very big or I wasn't anticipating having very many users. However, I've recently learned some useful patterns that have made unit testing my components much easier, and now I'm at the point where I even enjoy writing unit tests! These days, I don't write unit tests because I "have to" - I write them because I want to and sleep a lot better at night knowing that my code is protected. I'm going to describe a couple of common patterns that make writing testable components easier.
@@ -11,15 +12,15 @@ Unit testing my React components is a skill that did not come very easily to me.
 Before I understood too much about test-driven development (TDD), I would spend a few days writing a component and then come back to test it. The problem with this approach was that I would write components that were very difficult to test. Let's take a simple example. Here's a component that fetches a list of users from some API and displays them in a table.
 
 ```js
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     axios
-      .get('https://jsonplaceholder.typicode.com/users')
+      .get("https://jsonplaceholder.typicode.com/users")
       .then(({ data }) => setUsers(data));
   }, []);
 
@@ -53,22 +54,22 @@ export default UserTable;
 Now let's write a unit test for this component. When writing unit tests, we want to think about what the business logic is. So, what does this component do? We see that it fetches a list of users using `axios` in the `useEffect` at the beginning of the functional component, then displays that list of users. Let's write a test that makes sure the component successfully fetches and displays a list of users. Here's what a test might look like:
 
 ```js
-import React from 'react';
-import { render, waitFor, screen } from '@testing-library/react';
-import UserTable from './UserTable';
-import axios from 'axios';
+import React from "react";
+import { render, waitFor, screen } from "@testing-library/react";
+import UserTable from "./UserTable";
+import axios from "axios";
 
-describe('UserTable test', () => {
+describe("UserTable test", () => {
   const mockUsers = [
     {
-      name: 'Harry Potter',
-      username: 'boywholived',
-      email: 'harry@hogwarts.com',
+      name: "Harry Potter",
+      username: "boywholived",
+      email: "harry@hogwarts.com",
     },
     {
-      name: 'Tom Riddle',
-      username: 'darklord',
-      email: 'voldemort@deatheaters.com',
+      name: "Tom Riddle",
+      username: "darklord",
+      email: "voldemort@deatheaters.com",
     },
   ];
 
@@ -78,7 +79,7 @@ describe('UserTable test', () => {
     await waitFor(() => expect(axios.get).toHaveBeenCalled());
   });
 
-  test('renders user list', async () => {
+  test("renders user list", async () => {
     const { getByText } = screen;
 
     mockUsers.forEach(({ name, username, email }) => {
@@ -101,8 +102,8 @@ I've used a couple of different approaches to solving these problems. The first 
 One of the problems we mentioned with this component is its hard dependency on `axios`. That means we have to worry about mocking `axios` specifically in every component we test that uses it. What if instead of mocking it, we created another component and passed in a `fetchUsers` function as a prop? Then we wouldn't have to mock anything, we could just pass in our own function in the test file. Here's a new version of the component:
 
 ```js
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export const UserTable = ({ fetchUsers }) => {
   const [users, setUsers] = useState([]);
@@ -138,7 +139,7 @@ export const UserTable = ({ fetchUsers }) => {
 const UserTableContainer = () => {
   const fetchUsers = async () => {
     const { data } = await axios.get(
-      'https://jsonplaceholder.typicode.com/users'
+      "https://jsonplaceholder.typicode.com/users"
     );
     return data;
   };
@@ -154,21 +155,21 @@ Notice that now we have two components. `UserTable` is a lot like the old compon
 We also have a `UserTableContainer`, which does the heavy lifting of passing in the `fetchUsers` function, which basically just wraps an `axios` call. Now take a look at our revised unit test:
 
 ```js
-import React from 'react';
-import { render, waitFor, screen } from '@testing-library/react';
-import { UserTable } from './App';
+import React from "react";
+import { render, waitFor, screen } from "@testing-library/react";
+import { UserTable } from "./App";
 
-describe('UserTable test', () => {
+describe("UserTable test", () => {
   const mockUsers = [
     {
-      name: 'Harry Potter',
-      username: 'boywholived',
-      email: 'harry@hogwarts.com',
+      name: "Harry Potter",
+      username: "boywholived",
+      email: "harry@hogwarts.com",
     },
     {
-      name: 'Tom Riddle',
-      username: 'darklord',
-      email: 'voldemort@deatheaters.com',
+      name: "Tom Riddle",
+      username: "darklord",
+      email: "voldemort@deatheaters.com",
     },
   ];
 
@@ -178,7 +179,7 @@ describe('UserTable test', () => {
     await waitFor(() => expect(fetchUsers).toHaveBeenCalled());
   });
 
-  test('renders user list', async () => {
+  test("renders user list", async () => {
     const { getByText } = screen;
 
     mockUsers.forEach(({ name, username, email }) => {
@@ -201,8 +202,8 @@ This is just one solution to the problems we were having earlier. The other solu
 Presentational components are components that only present data, they have no state. For this example, instead of passing in a `fetchUsers` function, we could just make a component that accepts `users` as a prop and displays them. Then we wouldn't have to pass in a `fetchUsers` function at all in our test, all we would have to do is pass in a mock array of users and make sure that the component renders them. Here's the component rewritten to use this approach:
 
 ```js
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export const UserTable = ({ users }) => (
   <div>
@@ -232,7 +233,7 @@ const UserTableContainer = () => {
 
   useEffect(() => {
     axios
-      .get('https://jsonplaceholder.typicode.com/users')
+      .get("https://jsonplaceholder.typicode.com/users")
       .then(({ data }) => setUsers(data));
   }, []);
 
@@ -245,21 +246,21 @@ export default UserTableContainer;
 Now in our test, we don't even have to wait for anything in our `beforeEach` function. We can just render `UserTable` with the mock users and test that everything is displayed properly.
 
 ```js
-import React from 'react';
-import { render, waitFor, screen } from '@testing-library/react';
-import { UserTable } from './App';
+import React from "react";
+import { render, waitFor, screen } from "@testing-library/react";
+import { UserTable } from "./App";
 
-describe('UserTable test', () => {
+describe("UserTable test", () => {
   const mockUsers = [
     {
-      name: 'Harry Potter',
-      username: 'boywholived',
-      email: 'harry@hogwarts.com',
+      name: "Harry Potter",
+      username: "boywholived",
+      email: "harry@hogwarts.com",
     },
     {
-      name: 'Tom Riddle',
-      username: 'darklord',
-      email: 'voldemort@deatheaters.com',
+      name: "Tom Riddle",
+      username: "darklord",
+      email: "voldemort@deatheaters.com",
     },
   ];
 
@@ -267,7 +268,7 @@ describe('UserTable test', () => {
     render(<UserTable users={mockUsers} />);
   });
 
-  test('renders user list', async () => {
+  test("renders user list", async () => {
     const { getByText } = screen;
 
     mockUsers.forEach(({ name, username, email }) => {

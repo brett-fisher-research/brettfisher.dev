@@ -1,8 +1,8 @@
 ---
 title: How I Used JavaScript to Scrape Over 8000 Chinese Characters
-date: '2020-07-18T23:46:37.121Z'
+date: "2020-07-18T23:46:37.121Z"
 layout: post
-tags: archive
+draft: true
 ---
 
 At the beginning of 2019, I decided to sign up for a Mandarin Chinese 101 class at my university. Studying Chinese has since become one of my favorite pastimes, and to this day I continue to take private lessons via [italki](https://www.italki.com/).
@@ -35,9 +35,9 @@ $ touch index.js
 At the top of my `index.js` file I added the following lines:
 
 ```js
-const axios = require('axios').default;
-const cheerio = require('cheerio');
-const fs = require('fs');
+const axios = require("axios").default;
+const cheerio = require("cheerio");
+const fs = require("fs");
 ```
 
 I `require`d `fs` so that I'll be able to write the extracted data to a text file. I then decided to first write a simple function that could query a single page of characters. Looking at the table, I could see that there were 82 pages of characters in total.
@@ -62,7 +62,7 @@ That function returns the HTML at a given page number. Next I needed a function 
 function extractPageData(pageData) {
   const $ = cheerio.load(pageData);
 
-  const numRows = $('tbody tr').length;
+  const numRows = $("tbody tr").length;
 
   const pageVals = [];
   for (let row = 2; row <= numRows; row++) {
@@ -70,10 +70,10 @@ function extractPageData(pageData) {
     for (let col = 1; col <= 8; col++) {
       colVals.push($(`tbody tr:nth-child(${row}) td:nth-child(${col})`).text());
     }
-    pageVals.push(colVals.join('\t'));
+    pageVals.push(colVals.join("\t"));
   }
 
-  return pageVals.join('\n');
+  return pageVals.join("\n");
 }
 ```
 
@@ -88,14 +88,14 @@ async function scrapeData() {
   for (let i = 1; i <= 82; i++) {
     pageDataPromises.push(getPage(i));
     if (i % 10 == 0) {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
     }
   }
 
   const pageData = await Promise.all(pageDataPromises);
   const pageDataCsv = pageData.map(extractPageData);
-  fs.writeFileSync('characters.tsv', pageDataCsv.join('\n'));
-  console.log('done');
+  fs.writeFileSync("characters.tsv", pageDataCsv.join("\n"));
+  console.log("done");
 }
 ```
 
@@ -112,9 +112,9 @@ scrapeData();
 And that's it! After running the script with `node index.js`, it took about 30 or 40 seconds on my machine to download everything to a .tsv file. Then I opened the file with Google Sheets and used filters to query to my heart's content! Here's the whole script in one piece:
 
 ```js
-const axios = require('axios').default;
-const cheerio = require('cheerio');
-const fs = require('fs');
+const axios = require("axios").default;
+const cheerio = require("cheerio");
+const fs = require("fs");
 
 async function getPage(pageNum) {
   const url = `http://hanzidb.org/character-list/general-standard?page=${pageNum}`;
@@ -125,7 +125,7 @@ async function getPage(pageNum) {
 function extractPageData(pageData) {
   const $ = cheerio.load(pageData);
 
-  const numRows = $('tbody tr').length;
+  const numRows = $("tbody tr").length;
 
   const pageVals = [];
   for (let row = 2; row <= numRows; row++) {
@@ -133,10 +133,10 @@ function extractPageData(pageData) {
     for (let col = 1; col <= 8; col++) {
       colVals.push($(`tbody tr:nth-child(${row}) td:nth-child(${col})`).text());
     }
-    pageVals.push(colVals.join('\t'));
+    pageVals.push(colVals.join("\t"));
   }
 
-  return pageVals.join('\n');
+  return pageVals.join("\n");
 }
 
 async function scrapeData() {
@@ -145,14 +145,14 @@ async function scrapeData() {
   for (let i = 1; i <= 82; i++) {
     pageDataPromises.push(getPage(i));
     if (i % 10 == 0) {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
     }
   }
 
   const pageData = await Promise.all(pageDataPromises);
   const pageDataCsv = pageData.map(extractPageData);
-  fs.writeFileSync('characters.tsv', pageDataCsv.join('\n'));
-  console.log('done');
+  fs.writeFileSync("characters.tsv", pageDataCsv.join("\n"));
+  console.log("done");
 }
 
 scrapeData();

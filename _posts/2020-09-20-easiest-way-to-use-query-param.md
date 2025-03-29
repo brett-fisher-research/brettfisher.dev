@@ -1,7 +1,8 @@
 ---
 title: The Easiest Way to Use Query Parameters in React
-date: '2020-09-20T23:46:37.121Z'
+date: "2020-09-20T23:46:37.121Z"
 layout: post
+draft: true
 ---
 
 **TLDR;** - I wrote a hook that makes it easy to manage URL query parameters with React. View it on [Github](https://github.com/bandrewfisher/use-query-param) or [Code Sandbox](https://codesandbox.io/s/use-query-param-9fnnw?file=/src/App.tsx).
@@ -13,10 +14,10 @@ I put all this code in a file in my projects and just import it whenever I need 
 ```js
 // useQueryParam.ts
 
-import { useState } from 'react';
+import { useState } from "react";
 
 const getQuery = () => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     return new URLSearchParams(window.location.search);
   }
   return new URLSearchParams();
@@ -37,17 +38,17 @@ const useQueryParam = (
 
     const query = getQuery();
 
-    if (newVal.trim() !== '') {
+    if (newVal.trim() !== "") {
       query.set(key, newVal);
     } else {
       query.delete(key);
     }
 
     // This check is necessary if using the hook with Gatsby
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const { protocol, pathname, host } = window.location;
       const newUrl = `${protocol}//${host}${pathname}?${query.toString()}`;
-      window.history.pushState({}, '', newUrl);
+      window.history.pushState({}, "", newUrl);
     }
   };
 
@@ -60,11 +61,11 @@ export default useQueryParam;
 Using it in components is easy ([Code Sandbox](https://codesandbox.io/s/use-query-param-9fnnw)):
 
 ```js
-import React from 'react';
-import useQueryParam from './useQueryParam';
+import React from "react";
+import useQueryParam from "./useQueryParam";
 
 const App = () => {
-  const [search, setSearch] = useQueryParam('search', '');
+  const [search, setSearch] = useQueryParam("search", "");
 
   return (
     <input
@@ -83,7 +84,7 @@ Let's look at the first two functions:
 
 ```js
 const getQuery = () => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     return new URLSearchParams(window.location.search);
   }
   return new URLSearchParams();
@@ -111,18 +112,18 @@ const updateUrl = (newVal: string) => {
   const query = getQuery(); // Get the URLSearchParams object
 
   // Update URLSearchParams object
-  if (newVal.trim() !== '') {
+  if (newVal.trim() !== "") {
     query.set(key, newVal);
   } else {
     query.delete(key);
   }
 
   // This check is necessary if using the hook with Gatsby
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     // Update URL
     const { protocol, pathname, host } = window.location;
     const newUrl = `${protocol}//${host}${pathname}?${query.toString()}`;
-    window.history.pushState({}, '', newUrl);
+    window.history.pushState({}, "", newUrl);
   }
 };
 ```
