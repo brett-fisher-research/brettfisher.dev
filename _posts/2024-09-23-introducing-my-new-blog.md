@@ -142,15 +142,15 @@ import { format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
 
 export const generateStaticParams = async () =>
-  allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
+  {% raw %}allPosts.map((post) => ({ slug: post._raw.flattenedPath }));{% endraw %}
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = {% raw %}({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
   return { title: post.title };
-};
+};{% endraw %}
 
-const PostLayout = ({ params }: { params: { slug: string } }) => {
+const PostLayout = {% raw %}({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
 
@@ -168,7 +168,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       />
     </article>
   );
-};
+};{% endraw %}
 
 export default PostLayout;
 ```
@@ -245,7 +245,7 @@ import { allPosts, Post } from "contentlayer/generated";
 
 function PostCard(post: Post) {
   return (
-    <div className="mb-8">
+    {% raw %}<div className="mb-8">
       <h2 className="mb-1 text-xl">
         <Link
           href={post.url}
@@ -260,12 +260,12 @@ function PostCard(post: Post) {
       <div className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0">
         {post.description}
       </div>
-    </div>
+    </div>{% endraw %}
   );
 }
 
 export default function Blog() {
-  const posts = allPosts.sort((a, b) =>
+  {% raw %}const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
 
@@ -276,7 +276,7 @@ export default function Blog() {
         <PostCard key={idx} {...post} />
       ))}
     </div>
-  );
+  );{% endraw %}
 }
 ```
 
