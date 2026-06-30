@@ -1,8 +1,6 @@
 ---
 title: 2 Ways to Write Easily Testable React Components
-date: "2020-08-10T23:46:37.121Z"
-layout: post
-draft: true
+date: 2020-08-10
 ---
 
 Unit testing my React components is a skill that did not come very easily to me. When working on personal projects, it was so easy to justify not writing unit tests for reasons like the project wasn't very big or I wasn't anticipating having very many users. However, I've recently learned some useful patterns that have made unit testing my components much easier, and now I'm at the point where I even enjoy writing unit tests! These days, I don't write unit tests because I "have to" - I write them because I want to and sleep a lot better at night knowing that my code is protected. I'm going to describe a couple of common patterns that make writing testable components easier.

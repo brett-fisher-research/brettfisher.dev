@@ -1,8 +1,6 @@
 ---
 title: How to Create A Monorepo with Yarn Workspaces
-date: "2020-09-05T23:46:37.121Z"
-layout: post
-draft: true
+date: 2020-09-05
 ---
 
 TLDR; If you'd prefer to just see the working code, view the whole project here: https://github.com/bandrewfisher/monorepo-tutorial
