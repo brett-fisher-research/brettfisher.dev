@@ -1,9 +1,6 @@
 ---
 title: The Easiest Way to Use Snackbars in Vue
-date: "2020-10-15T23:46:37.121Z"
-layout: post
-tags: archive
-draft: true
+date: 2020-10-15
 ---
 
 **TLDR**; Check out the code on [Code Sandbox](https://codesandbox.io/s/snackbar-7e0jq) to learn how to make a snackbar that can be opened from any Vue component in your app!

@@ -1,8 +1,6 @@
 ---
 title: How to Test Responsive React Components
-date: "2020-08-22T23:46:37.121Z"
-layout: post
-draft: true
+date: 2020-08-22
 ---
 
 I was recently writing some responsive React components and needed to find a way to unit test them. I was using some custom components developed by my company that made it easy to render different layouts depending on the screen size. I wanted to test that certain components were visible on larger screen sizes and hidden on smaller screen sizes. I use Jest as my test runner, and I wasn't sure if there was a way to make Jest render different screen sizes. Luckily, it doesn't matter. There's a much easier way to test how your component behaves on different screen sizes.

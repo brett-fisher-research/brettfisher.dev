@@ -1,8 +1,6 @@
 ---
 title: Dynamically Loading Vue Components by Route
-date: "2020-03-22T23:46:37.121Z"
-layout: post
-draft: true
+date: 2020-03-22
 ---
 
 When I decided to create this blog with Vue, I found

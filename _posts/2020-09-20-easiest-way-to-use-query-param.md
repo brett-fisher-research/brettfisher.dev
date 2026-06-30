@@ -1,8 +1,6 @@
 ---
 title: The Easiest Way to Use Query Parameters in React
-date: "2020-09-20T23:46:37.121Z"
-layout: post
-draft: true
+date: 2020-09-20
 ---
 
 **TLDR;** - I wrote a hook that makes it easy to manage URL query parameters with React. View it on [Github](https://github.com/bandrewfisher/use-query-param) or [Code Sandbox](https://codesandbox.io/s/use-query-param-9fnnw?file=/src/App.tsx).

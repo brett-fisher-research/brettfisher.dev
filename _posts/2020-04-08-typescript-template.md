@@ -1,8 +1,6 @@
 ---
 title: Typescript + Express Template (just add npm)
-date: "2020-04-08T23:46:37.121Z"
-layout: post
-draft: true
+date: 2020-04-08
 ---
 
 TLDR; Just clone my Github repo and run <code>npm install</code> (or

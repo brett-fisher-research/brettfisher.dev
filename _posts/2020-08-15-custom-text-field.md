@@ -1,8 +1,6 @@
 ---
 title: How to Create Your Own React Text Field
-date: "2020-08-15T23:46:37.121Z"
-layout: post
-draft: true
+date: 2020-08-15
 ---
 
 [On the home page of my blog](https://brettfisher.dev), there is a search field that lets you search for posts by title or tags. I originally tried using [Material UI's Text Field component](https://material-ui.com/components/text-fields/#text-field), which seemed to be working just fine. However, once I built my site and ran it in production mode, the styling on the Text Field disappeared. I don't know if this is a problem with Material UI or Gatsby (or even something else), but I wasn't about to publish that to my site. All I wanted was a simple input element with some nice styling. I thought, "Hey, I'm a web developer. I'll just make the component myself"! I'll show you how I did it.
