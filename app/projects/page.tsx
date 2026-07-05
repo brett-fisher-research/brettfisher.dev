@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -36,12 +35,20 @@ export default function ProjectsPage() {
             rel="noopener noreferrer"
             className="featured__media"
           >
-            <Image
-              src="/projects/duree-hero.png"
-              alt="The Duree app window: a running timer with a sidebar of tracked activities"
-              width={680}
-              height={382}
-            />
+            {/* Animated hero; static frame for prefers-reduced-motion. */}
+            <picture>
+              <source
+                media="(prefers-reduced-motion: reduce)"
+                srcSet="/projects/duree-hero.png"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element -- static export, unoptimized images; <picture> enables the reduced-motion swap */}
+              <img
+                src="/projects/duree-hero.gif"
+                alt="The Duree app window: a running timer with a sidebar of tracked activities"
+                width={680}
+                height={383}
+              />
+            </picture>
           </a>
           <div className="featured__body">
             <h2>Duree</h2>

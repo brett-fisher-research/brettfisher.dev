@@ -22,6 +22,24 @@ grep -q "Duree" "$PAGE" && echo "OK   page mentions Duree" \
   || { echo "FAIL: page missing Duree"; fail=1; }
 grep -q 'href="https://duree.dev"' "$PAGE" && echo "OK   page links https://duree.dev" \
   || { echo "FAIL: page missing duree.dev href"; fail=1; }
+grep -q 'duree-hero.gif' "$PAGE" && echo "OK   page references duree-hero.gif" \
+  || { echo "FAIL: page missing duree-hero.gif reference"; fail=1; }
+
+# Animated hero gif: exists in source and export, GIF89a magic.
+for GIF in public/projects/duree-hero.gif out/projects/duree-hero.gif; do
+  if [ ! -f "$GIF" ]; then
+    echo "FAIL: $GIF not found"
+    fail=1
+    continue
+  fi
+  gmagic="$(head -c 6 "$GIF")"
+  if [ "$gmagic" = "GIF89a" ]; then
+    echo "OK   $GIF has GIF89a magic"
+  else
+    echo "FAIL: $GIF is not a GIF89a (magic: $gmagic)"
+    fail=1
+  fi
+done
 
 # Hero asset: exists, PNG magic bytes, > 10KB — in source and in the export.
 for IMG in public/projects/duree-hero.png out/projects/duree-hero.png; do
