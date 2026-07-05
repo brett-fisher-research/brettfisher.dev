@@ -271,6 +271,64 @@ img {
   margin-top: var(--space-1);
 }
 
+/* ---- Projects ----------------------------------------------------------- */
+.section-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: var(--space-3);
+}
+
+.featured {
+  margin-bottom: var(--space-12);
+}
+
+.featured__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-6);
+}
+
+.featured__media {
+  display: block;
+  line-height: 0;
+}
+
+.featured__media img {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.featured__body h2 {
+  margin: 0 0 var(--space-3);
+}
+
+.featured__body p {
+  color: var(--color-muted);
+}
+
+.featured__link {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.more-projects {
+  margin-bottom: var(--space-12);
+}
+
+@media (max-width: 640px) {
+  .featured__card {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---- Single post -------------------------------------------------------- */
 .post-header {
   margin-bottom: var(--space-8);

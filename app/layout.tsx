@@ -47,6 +47,7 @@ export default function RootLayout({
                 Brett Fisher
               </Link>
               <nav className="site-nav">
+                <Link href="/projects">Projects</Link>
                 <Link href="/about">About</Link>
               </nav>
             </div>
