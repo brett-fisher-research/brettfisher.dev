@@ -27,7 +27,6 @@ export default function ProjectsPage() {
       </section>
 
       <section className="featured">
-        <p className="section-label">Featured</p>
         <div className="featured__card">
           <a
             href="https://duree.dev"
@@ -53,8 +52,8 @@ export default function ProjectsPage() {
           <div className="featured__body">
             <h2>Duree</h2>
             <p>
-              A calm, local-first time tracker for macOS and Windows. My paid
-              product — free to use, with optional cross-device sync.
+              A calm, local-first time tracker for macOS and Windows. Free to
+              use, with optional paid cross-device sync.
             </p>
             <a
               href="https://duree.dev"

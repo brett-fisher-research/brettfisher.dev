@@ -24,6 +24,12 @@ describe("/projects page", () => {
     expect(pageSrc).toContain("prefers-reduced-motion: reduce");
   });
 
+  it("uses the approved blurb, no em dashes, no FEATURED label", () => {
+    expect(pageSrc).toContain("optional paid cross-device sync");
+    expect(pageSrc).not.toContain("—");
+    expect(pageSrc).not.toMatch(/Featured/);
+  });
+
   it("keeps styling in globals.css classes, not inline styles", () => {
     expect(pageSrc).not.toContain("style={{");
     expect(cssSrc).toContain(".featured__card");
