@@ -65,6 +65,37 @@ export default function ProjectsPage() {
             </a>
           </div>
         </div>
+        <div className="featured__card">
+          <a
+            href="https://github.com/brett-fisher-research/brot-os"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="featured__media"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element -- static export, unoptimized images */}
+            <img
+              src="/projects/brot-os-cover.png"
+              alt="The brot-os cover: a colorful fractal set against a starry night sky"
+              width={680}
+              height={453}
+            />
+          </a>
+          <div className="featured__body">
+            <h2>brot-os</h2>
+            <p>
+              A virtual AI OS: one macro repo hosting many self-contained
+              project repos, driven almost entirely through Claude Code skills.
+            </p>
+            <a
+              href="https://github.com/brett-fisher-research/brot-os"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="featured__link"
+            >
+              github.com/brett-fisher-research/brot-os →
+            </a>
+          </div>
+        </div>
       </section>
 
       {moreProjects.length > 0 && (
