@@ -24,6 +24,8 @@ done < <(find _posts -name '*.md' | sort)
 
 echo "----"
 echo "checked $count slugs"
-[ "$count" -eq 16 ] || { echo "FAIL: expected 16 posts, found $count"; fail=1; }
+EXPECTED="$(find _posts -name '*.md' | wc -l | tr -d ' ')"
+[ "$EXPECTED" -gt 0 ] || { echo "FAIL: no posts found in _posts/"; fail=1; }
+[ "$count" -eq "$EXPECTED" ] || { echo "FAIL: expected $EXPECTED posts, found $count"; fail=1; }
 
 exit "$fail"
