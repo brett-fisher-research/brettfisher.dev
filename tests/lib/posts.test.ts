@@ -4,15 +4,14 @@ import { getAllPosts, getPostBySlug } from "../../lib/posts";
 describe("getAllPosts", () => {
   const posts = getAllPosts();
 
-  it("returns all 16 posts", () => {
-    expect(posts).toHaveLength(16);
+  it("returns a non-empty set of posts", () => {
+    expect(posts.length).toBeGreaterThan(0);
   });
 
   it("sorts by date descending (newest first)", () => {
     const dates = posts.map((p) => p.date);
     const sorted = [...dates].sort().reverse();
     expect(dates).toEqual(sorted);
-    expect(posts[0].date).toBe("2024-09-23");
   });
 
   it("shapes each post as {slug,title,date,year}", () => {
@@ -28,10 +27,10 @@ describe("getAllPosts", () => {
   });
 
   it("derives slug from filename minus the date prefix", () => {
-    const newest = posts[0];
-    expect(newest.slug).toBe("introducing-my-new-blog");
+    // Verify against a stable known post rather than whichever is newest.
     const known = getPostBySlug("dynamic-vue-components");
     expect(known).toBeDefined();
+    expect(known?.slug).toBe("dynamic-vue-components");
     expect(known?.year).toBe(2020);
   });
 

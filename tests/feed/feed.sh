@@ -3,7 +3,7 @@
 #
 # Validates an already-built out/feed.xml (the runner builds once up front):
 #   1. exists and is well-formed RSS (xmllint if available, else node parse)
-#   2. contains exactly 16 <item> elements, newest post first.
+#   2. contains one <item> per post in _posts/ (count derived), newest first.
 #
 # The expected newest title is derived from _posts/ (the lone 2024 post) so the
 # assertion isn't brittle to wording changes.
@@ -48,10 +48,12 @@ fi
 grep -q "<link>https://brettfisher.dev" "$FEED" || fail "channel link missing/wrong"
 echo "ok: channel metadata present"
 
-# --- 2. exactly 16 items --------------------------------------------------
+# --- 2. one item per post -------------------------------------------------
+EXPECTED_ITEMS="$(find _posts -name '*.md' | wc -l | tr -d ' ')"
+[ "$EXPECTED_ITEMS" -gt 0 ] || fail "no posts found in _posts/"
 ITEM_COUNT="$(grep -c "<item>" "$FEED")"
-[ "$ITEM_COUNT" -eq 16 ] || fail "expected 16 <item>s, found $ITEM_COUNT"
-echo "ok: 16 <item> elements"
+[ "$ITEM_COUNT" -eq "$EXPECTED_ITEMS" ] || fail "expected $EXPECTED_ITEMS <item>s, found $ITEM_COUNT"
+echo "ok: $ITEM_COUNT <item> elements"
 
 # --- 2. newest first ------------------------------------------------------
 # Newest post = the only file under _posts/ starting with the max year.
@@ -86,4 +88,4 @@ if [ "$FIRST_ITEM_TITLE" != "$EXPECTED_TITLE" ]; then
 fi
 echo "ok: newest post first ('$FIRST_ITEM_TITLE')"
 
-echo "PASS: feed.xml valid, 16 items, newest first"
+echo "PASS: feed.xml valid, $ITEM_COUNT items, newest first"

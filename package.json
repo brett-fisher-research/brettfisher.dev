@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "new:post": "tsx scripts/new-post.ts",
+    "build": "tsx scripts/check-untitled.ts && next build",
     "start": "next start",
     "lint": "eslint",
     "test:unit": "vitest run",
