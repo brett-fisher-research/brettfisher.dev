@@ -83,8 +83,8 @@ export default function ProjectsPage() {
           <div className="featured__body">
             <h2>brot-os</h2>
             <p>
-              A virtual AI OS: one macro repo hosting many self-contained
-              project repos, driven almost entirely through Claude Code skills.
+                A virtual OS for AI-driven workflows. It lets you manage all your projects with AI from a single directory
+                and sync your workspace across devices.
             </p>
             <a
               href="https://github.com/brett-fisher-research/brot-os"
