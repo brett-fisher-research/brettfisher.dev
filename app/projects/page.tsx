@@ -119,11 +119,10 @@ export default function ProjectsPage() {
             </picture>
           </a>
           <div className="featured__body">
-            <h2>Blackjack</h2>
+            <h2>Blackjack Rust</h2>
             <p>
               A pixel-art blackjack you can play in the browser or on desktop,
-              built in Rust with macroquad. Place your bets, hit or stand, and
-              try to beat the dealer.
+              built in Rust with macroquad. 
             </p>
             <a
               href="https://github.com/brett-fisher-research/blackjack_rust"
