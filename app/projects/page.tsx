@@ -81,7 +81,7 @@ export default function ProjectsPage() {
             />
           </a>
           <div className="featured__body">
-            <h2>brot-os</h2>
+            <h2>Brot OS</h2>
             <p>
                 A virtual OS for AI-driven workflows. It lets you manage all your projects with AI from a single directory
                 and sync your workspace across devices.
