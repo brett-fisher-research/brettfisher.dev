@@ -11,6 +11,7 @@
     "test:unit": "vitest run",
     "test:bash": "bash tests/run-bash.sh",
     "capture:hero": "node scripts/capture-duree-hero.mjs",
+    "capture:blackjack": "node scripts/capture-blackjack-hero.mjs",
     "test": "npm run build && npm run test:unit && npm run test:bash"
   },
   "dependencies": {

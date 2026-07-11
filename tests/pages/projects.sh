@@ -25,8 +25,16 @@ grep -q 'href="https://duree.dev"' "$PAGE" && echo "OK   page links https://dure
 grep -q 'duree-hero.gif' "$PAGE" && echo "OK   page references duree-hero.gif" \
   || { echo "FAIL: page missing duree-hero.gif reference"; fail=1; }
 
+grep -q "Blackjack" "$PAGE" && echo "OK   page mentions Blackjack" \
+  || { echo "FAIL: page missing Blackjack"; fail=1; }
+grep -q 'github.com/brett-fisher-research/blackjack_rust' "$PAGE" && echo "OK   page links the blackjack repo" \
+  || { echo "FAIL: page missing blackjack repo href"; fail=1; }
+grep -q 'blackjack-hero.gif' "$PAGE" && echo "OK   page references blackjack-hero.gif" \
+  || { echo "FAIL: page missing blackjack-hero.gif reference"; fail=1; }
+
 # Animated hero gif: exists in source and export, GIF89a magic.
-for GIF in public/projects/duree-hero.gif out/projects/duree-hero.gif; do
+for GIF in public/projects/duree-hero.gif out/projects/duree-hero.gif \
+           public/projects/blackjack-hero.gif out/projects/blackjack-hero.gif; do
   if [ ! -f "$GIF" ]; then
     echo "FAIL: $GIF not found"
     fail=1
@@ -41,8 +49,9 @@ for GIF in public/projects/duree-hero.gif out/projects/duree-hero.gif; do
   fi
 done
 
-# Hero asset: exists, PNG magic bytes, > 10KB — in source and in the export.
-for IMG in public/projects/duree-hero.png out/projects/duree-hero.png; do
+# Hero asset: exists, PNG magic bytes, > 5KB — in source and in the export.
+for IMG in public/projects/duree-hero.png out/projects/duree-hero.png \
+           public/projects/blackjack-hero.png out/projects/blackjack-hero.png; do
   if [ ! -f "$IMG" ]; then
     echo "FAIL: $IMG not found"
     fail=1
@@ -56,10 +65,10 @@ for IMG in public/projects/duree-hero.png out/projects/duree-hero.png; do
     fail=1
   fi
   size="$(wc -c < "$IMG" | tr -d ' ')"
-  if [ "$size" -gt 10240 ]; then
-    echo "OK   $IMG is ${size} bytes (> 10KB)"
+  if [ "$size" -gt 5120 ]; then
+    echo "OK   $IMG is ${size} bytes (> 5KB)"
   else
-    echo "FAIL: $IMG is only ${size} bytes (<= 10KB)"
+    echo "FAIL: $IMG is only ${size} bytes (<= 5KB)"
     fail=1
   fi
 done

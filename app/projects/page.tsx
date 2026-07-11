@@ -96,6 +96,45 @@ export default function ProjectsPage() {
             </a>
           </div>
         </div>
+        <div className="featured__card">
+          <a
+            href="https://github.com/brett-fisher-research/blackjack_rust"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="featured__media"
+          >
+            {/* Animated hero; static frame for prefers-reduced-motion. */}
+            <picture>
+              <source
+                media="(prefers-reduced-motion: reduce)"
+                srcSet="/projects/blackjack-hero.png"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element -- static export, unoptimized images; <picture> enables the reduced-motion swap */}
+              <img
+                src="/projects/blackjack-hero.gif"
+                alt="The Blackjack game: a dealt hand with red chips bet on a purple table"
+                width={680}
+                height={510}
+              />
+            </picture>
+          </a>
+          <div className="featured__body">
+            <h2>Blackjack</h2>
+            <p>
+              A pixel-art blackjack you can play in the browser or on desktop,
+              built in Rust with macroquad. Place your bets, hit or stand, and
+              try to beat the dealer.
+            </p>
+            <a
+              href="https://github.com/brett-fisher-research/blackjack_rust"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="featured__link"
+            >
+              github.com/brett-fisher-research/blackjack_rust →
+            </a>
+          </div>
+        </div>
       </section>
 
       {moreProjects.length > 0 && (
