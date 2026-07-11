@@ -282,6 +282,9 @@ img {
 }
 
 .featured {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
   margin-bottom: var(--space-12);
 }
 
