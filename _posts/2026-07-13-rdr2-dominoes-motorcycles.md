@@ -1,0 +1,31 @@
+---
+title: Red Dead Redemption 2, Dominoes, and Motorcycles
+date: 2026-07-13
+---
+
+I've recently started a new playthrough of Red Dead Redemption 2 after picking it up for the first time a few years ago. Yesterday, I sat down in my camp and played a game of dominoes, something I never tried during my first playthrough of the game. I began to get in my head trying to think of strategy, until the NPC I was playing against said "stop thinking and start playing." I remembered that I was just playing a video game, and games are supposed to be fun! It's not about trying to play the "right" way. My enjoyment of the game is my own experience. There are so many things to do in RDR2 that I can play the game however I want. If I'm not having fun playing this game that I paid for, then I'm doing something wrong.
+
+And if I really wanted to get good at playing dominoes, then I was just going to have to play a lot. There's nothing wrong with spending my time in the game just playing dominoes if that's what I want to do. The point isn't to rush through the story and quests of the game if I'm not having fun.
+
+The first time I played RDR2, I thought I was missing out if I didn't dabble in EVERYTHING the game had to offer. I had to talk to every NPC, do every quest, get every weapon. But what happened was I burned out. I ended up doing a lot of things I didn't enjoy doing, like hunting, just to be able to say that I did them. And what was the point of that? I wasn't going to get points from anyone by saying that I completed certain tasks in the game. If I wasn't having fun playing the game, I was doing something wrong.  Now there's nothing wrong with exploring the game as much as you want, but there's also nothing wrong with playing dominoes at your camp all day. There's no ticking clock in RDR2. The sun rises and sets each day, and what I don't do one day I can do another. You don't run out of days in the game. 
+
+When playing the game for the first time, I loved the lawlessness of it. I could be the worst criminal and commit crimes I'd never do in real life just for the hell of it, all with no real consequences. But what I realized was that a nihilistic, chaotic approach to the game quickly became boring. There's no real point to it, no challenge. RDR2 is full of progressive challenges, from hunting to fishing to gaming, and you can spend countless hours having fun just trying to solve the available mini challenges and learning more about the game in general as you spend more time playing. I've taken a far more honorable approach to the game this playthrough, and I've had so much more fun by doing so.
+
+I didn't think I would learn all of these philosophical ideas from a video game, but lately I've been thinking about approaching life as a game, and with that perspective, the more I play, learn about, and come to appreciate games in general, the more I feel the same way about life.
+
+Maybe that's just what happens when you take a perspective on something, whether it's life or anything else. The way we choose to THINK affects how we SEE things. There are no "right" perspectives to take. Everyone says something different - life is a journey, life is a maze, life is misery, life is joy, life is suffering, life is family, life is a game.
+
+When you have a hammer, you start seeing nails. And when you take a perspective, or form an opinion, you start noticing things that make you feel like you're right. And I've found that approaching life from this perspective of someone playing a game to be fascinating. Games are, after all, about having fun, about solving challenges and working within constraints, about making the most with the hand you've been dealt.
+
+I've had many, many thoughts about how I don't have enough money or how I'm falling behind compared to other people I know. It's hard not to. But everyone else is playing their own game.
+
+## Motorcycles
+When I was learning how to ride a motorcycle, one of the things that I heard over and over again from experienced motorcyclists was "ride your own ride". This idea especially came up a lot when I was learning about riding in a group with other motorcyclists. Peer pressure is a very real thing, and it's only human nature to want to catch up to the rest of the group if you're lagging behind. If you're a new motorcyclist and aren't comfortable on the bike at higher speeds, this is a great way to multiply your chances of getting seriously hurt or even losing your life. 
+
+I think the same thing can be said of living your life in general. Ride your own ride. If you're always trying to catch up to other people, then how much fun are you really going to have? The best times I ever had on a motorcycle were not when I was trying to catch up to other people, but the times that I pulled over to look at the trees on the sides of mountains, or to stop at a place where I could look at miles of stretching, empty fields, a welcome relief from the noise and busyness of suburban life. And the best times I've had in life have been when I lose myself in a good book, game, or movie, or when I spend time with the people I'm closest with.
+
+When I look back on my life and think about what I'm nostalgic for, it's when it was easiest to be around my favorite people and share everyday moments with them, as unextraordinary as they may have seemed in the moment. There's nothing quite like the feeling of cheering together with other people when you win a game together, as small of a thing as that may seem to be.
+
+I never look back and think about how happy I was to have bought something or to have made some amount of money. Money has solved my problems that everyone faces like shelter, food, clothing, and transportation. More money will just mean fancier versions of those things.
+
+In high school I looked forward to leaving home and going to college, then in college all I could think of were the next classes I wanted to take, or about how great it would be to get a "real" job and have my own place. Now that I have my own place I've thought about how I want to own a house or have a bigger car. When will I stop repeating this pattern? Life is a game. It's been my favorite perspective to take. So stop trying to rush through all the missions, ride your own ride, stop what you're doing and play some dominoes.
